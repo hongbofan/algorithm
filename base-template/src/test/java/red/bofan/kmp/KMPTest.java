@@ -9,8 +9,8 @@ public class KMPTest {
     public static void main(String[] args) {
         Long start = Instant.now().toEpochMilli();
         for (int i = 0;i <= 100000000;i++) {
-            String s = "BBC ABCDAB ABCDABCDABDEABCDABCD";
-            String p = "ABCDABCD";
+            String s = "worbwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordword";
+            String p = "worbwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordwordword";
             KMPResolver.resolve(s,p)
             //        .forEach(System.out::println)
             ;
