@@ -14,33 +14,33 @@ public class TrieTree {
         if (word == null || word.length() == 0) {
             return;
         }
-        TrieNode node = root;
+        TrieNode father = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             int idx = c - 'a';
-            TrieNode child = node.getNodes()[idx];
+            TrieNode child = father.getKids()[idx];
             if (child == null) {
                 child = new TrieNode();
-                node.getNodes()[idx] = child;
+                father.getKids()[idx] = child;
             }
-            node = child;
-            node.setCount(node.getCount() + 1);
+            father = child;
+            father.setCount(father.getCount() + 1);
         }
-        node.setRed(true);
+        father.setRed(true);
     }
 
     public boolean contains(String target) {
         if (target == null || target.length() == 0) {
             return false;
         }
-        TrieNode node = root;
+        TrieNode father = root;
         for (int i = 0; i < target.length(); i++) {
             char c = target.charAt(i);
             int idx = c - 'a';
-            if (node.getNodes()[idx] == null) {
+            if (father.getKids()[idx] == null) {
                 return false;
             }
-            node = node.getNodes()[idx];
+            father = father.getKids()[idx];
         }
         return true;
     }

@@ -6,7 +6,7 @@ package red.bofan.trie;
 public class TrieNode {
     private int count;
     private boolean isRed;
-    private TrieNode[] nodes = new TrieNode[26];
+    private TrieNode[] kids = new TrieNode[26];
 
     public TrieNode() {
     }
@@ -27,11 +27,11 @@ public class TrieNode {
         isRed = red;
     }
 
-    public TrieNode[] getNodes() {
-        return nodes;
+    public TrieNode[] getKids() {
+        return kids;
     }
 
-    public void setNodes(TrieNode[] nodes) {
-        this.nodes = nodes;
+    public void setKids(TrieNode[] kids) {
+        this.kids = kids;
     }
 }
