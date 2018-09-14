@@ -1,5 +1,6 @@
 package red.bofan.acautomaton;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,8 +9,11 @@ import java.util.List;
 public class ACAutomatonResolver {
     private static TrieTree trieTree = new TrieTree();
 
-    public static void add(String word) {
-        trieTree.add(word);
+    public static void add(List<String> words) {
+        words.forEach(trieTree::add);
+    }
+    public static void add(String[] words) {
+        add(Arrays.asList(words));
     }
     public static void build() {
         trieTree.buildFail();

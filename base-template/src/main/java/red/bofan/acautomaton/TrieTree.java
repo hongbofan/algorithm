@@ -1,6 +1,5 @@
 package red.bofan.acautomaton;
 
-import red.bofan.trie.TrieNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +32,7 @@ public class TrieTree {
             node = child;
         }
         node.setRed(true);
+        node.setWord(word);
     }
 
     public void buildFail() {
@@ -60,12 +60,10 @@ public class TrieTree {
                 }
             }
         }
-        System.out.println(root);
     }
 
     public List<String> containsList(String target) {
         ACNode father = root;
-        StringBuilder sb = new StringBuilder();
         List<String> result = new ArrayList<>();
         for (int i = 0;i < target.length();i++) {
             int idx = target.charAt(i) - 'a';
@@ -75,10 +73,8 @@ public class TrieTree {
                 kid = father.getKids()[idx];
             }
             if (kid != null) {
-                sb.append(target.charAt(i));
                 if (kid.isRed()) {
-                    result.add(sb.toString());
-                    sb.delete(0,sb.length() - 1);
+                    result.add(kid.getWord());
                 }
                 father = kid;
             }

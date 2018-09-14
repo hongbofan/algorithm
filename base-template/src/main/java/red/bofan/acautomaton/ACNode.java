@@ -7,6 +7,7 @@ public class ACNode {
     private boolean isRed;
     private ACNode[] kids = new ACNode[26];
     private ACNode fail;
+    private String word;
 
     public boolean isRed() {
         return isRed;
@@ -30,5 +31,13 @@ public class ACNode {
 
     public void setFail(ACNode fail) {
         this.fail = fail;
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
     }
 }
