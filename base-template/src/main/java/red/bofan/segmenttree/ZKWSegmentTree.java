@@ -15,10 +15,11 @@ public class ZKWSegmentTree {
 
     public void build(List<Integer> list) {
         int n = list.size();
-        while (t < n) {
+        while (t < n + 2) {
             t <<= 1;
         }
-        nodes = new int[t + n];
+        //TODO
+        nodes = new int[100000];
         for (int i = t; i < t + n; i++) {
             nodes[i] = list.get(i - t);
         }
@@ -36,14 +37,23 @@ public class ZKWSegmentTree {
         }
     }
 
+    /**
+     * 先将 l r 闭合区间 赋值为线段树的开区间
+     * ~l & 1 != 0 等价于 l % 2 == 0 等价于 判断区间l 是否为偶数 等价于 判断区间l 是否为左儿子
+     * 同理 r & 1 != 0
+     * 取左端是左儿子的右兄弟 取右端是右儿子的左兄弟 作为目标节点
+     * @param l 左区间(下标0开始)
+     * @param r 右区间(下标0开始)
+     * @return
+     */
     public int query(int l, int r) {
-        int ans = -1;
+        int ans = 0;
         for (l += t - 1, r += t + 1; (l ^ r ^ 1) != 0; l >>= 1, r >>= 1) {
-            if ((~l & 1) == 0) {
-                ans = Math.max(ans, nodes[l ^ 1]);
+            if ((~l & 1) != 0) {
+                ans += nodes[l ^ 1];
             }
-            if ((r & 1) == 0) {
-                ans = Math.max(ans, nodes[r ^ 1]);
+            if ((r & 1) != 0) {
+                ans += nodes[r ^ 1];
             }
         }
         return ans;
