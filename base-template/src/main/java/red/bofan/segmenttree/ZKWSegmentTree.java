@@ -18,8 +18,7 @@ public class ZKWSegmentTree {
         while (t < n + 2) {
             t <<= 1;
         }
-        //TODO
-        nodes = new int[100000];
+        nodes = new int[t * 2];
         for (int i = t; i < t + n; i++) {
             nodes[i] = list.get(i - t);
         }

@@ -7,9 +7,8 @@ import java.util.Arrays;
  */
 public class ZKWSegmentTreeTest {
     public static void main(String[] args) {
-        ZKWSegmentTreeResolver.build(Arrays.asList(1));
-        //ZKWSegmentTreeResolver.change(4,5);
+        ZKWSegmentTreeResolver.build(Arrays.asList(1,2,3,4));
+        ZKWSegmentTreeResolver.change(4,5);
         System.out.println(ZKWSegmentTreeResolver.query(1,3));
-        System.out.println(3 ^ 5);
     }
 }
